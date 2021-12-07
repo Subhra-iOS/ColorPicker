@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="colorPickerCellIdentifier" rowHeight="563" id="KGk-i7-Jjw" customClass="ARCHueColorPickerCell" customModule="SRColorPicker" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="425" height="563"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="425" height="563"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I46-SZ-N4g">
+                        <rect key="frame" x="0.0" y="0.0" width="425" height="563"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UN6-j6-MUe" customClass="ColorSquarePicker" customModule="SRColorPicker" customModuleProvider="target">
+                                <rect key="frame" x="33" y="30" width="359" height="218"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="218" id="bd6-64-rJb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="value">
+                                        <point key="value" x="0.5" y="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="colorSquarePickerValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="LiM-xW-ML3"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTz-FC-8eQ" customClass="ColorBarPicker" customModule="SRColorPicker" customModuleProvider="target">
+                                <rect key="frame" x="33" y="268" width="359" height="25"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="Tgd-o8-OcM"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="hue">
+                                        <real key="value" value="0.40000000000000002"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="colorBarPickerValueChanged:" destination="KGk-i7-Jjw" eventType="valueChanged" id="bKN-qg-mnY"/>
+                                </connections>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="qTE-sa-33V">
+                                <rect key="frame" x="33" y="313" width="310" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="W2f-If-Bch"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vY-vY-K03">
+                                <rect key="frame" x="0.0" y="358" width="425" height="2"/>
+                                <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="6fS-vQ-gBQ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kNf-rE-3FS" customClass="ColorIndicatorView" customModule="SRColorPicker" customModuleProvider="target">
+                                <rect key="frame" x="363" y="316" width="29" height="29"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="29" id="cxA-T0-5jR"/>
+                                    <constraint firstAttribute="height" constant="29" id="zsB-rp-3B6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="og6-7m-YQA" customClass="ColorPickerView" customModule="SRColorPicker" customModuleProvider="target">
+                                <rect key="frame" x="33" y="370" width="359" height="168"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="551" id="00C-JC-YpK"/>
+                            <constraint firstItem="qTE-sa-33V" firstAttribute="top" secondItem="aTz-FC-8eQ" secondAttribute="bottom" constant="20" id="0Pa-IE-68C"/>
+                            <constraint firstItem="aTz-FC-8eQ" firstAttribute="leading" secondItem="UN6-j6-MUe" secondAttribute="leading" id="1au-sz-Vfo"/>
+                            <constraint firstAttribute="trailing" secondItem="2vY-vY-K03" secondAttribute="trailing" id="1mm-cP-UWr"/>
+                            <constraint firstItem="kNf-rE-3FS" firstAttribute="leading" secondItem="qTE-sa-33V" secondAttribute="trailing" constant="20" id="5v4-Oj-8qK"/>
+                            <constraint firstItem="aTz-FC-8eQ" firstAttribute="trailing" secondItem="UN6-j6-MUe" secondAttribute="trailing" id="74k-lI-lvU"/>
+                            <constraint firstItem="qTE-sa-33V" firstAttribute="leading" secondItem="aTz-FC-8eQ" secondAttribute="leading" id="8bX-W6-jas"/>
+                            <constraint firstItem="2vY-vY-K03" firstAttribute="centerX" secondItem="I46-SZ-N4g" secondAttribute="centerX" id="Euo-bM-OH1"/>
+                            <constraint firstItem="UN6-j6-MUe" firstAttribute="leading" secondItem="I46-SZ-N4g" secondAttribute="leading" constant="33" id="HhW-g8-YQs"/>
+                            <constraint firstItem="kNf-rE-3FS" firstAttribute="centerY" secondItem="qTE-sa-33V" secondAttribute="centerY" id="JYL-Vm-PZu"/>
+                            <constraint firstItem="og6-7m-YQA" firstAttribute="leading" secondItem="qTE-sa-33V" secondAttribute="leading" id="MCB-Ff-eIU"/>
+                            <constraint firstItem="2vY-vY-K03" firstAttribute="top" secondItem="qTE-sa-33V" secondAttribute="bottom" constant="10" id="NC6-qC-xIP"/>
+                            <constraint firstItem="og6-7m-YQA" firstAttribute="trailing" secondItem="UN6-j6-MUe" secondAttribute="trailing" id="QzS-BA-vc6"/>
+                            <constraint firstItem="UN6-j6-MUe" firstAttribute="top" secondItem="I46-SZ-N4g" secondAttribute="top" constant="30" id="RPb-cD-aFM"/>
+                            <constraint firstItem="og6-7m-YQA" firstAttribute="top" secondItem="2vY-vY-K03" secondAttribute="bottom" constant="10" id="T53-RA-udh"/>
+                            <constraint firstItem="UN6-j6-MUe" firstAttribute="centerX" secondItem="I46-SZ-N4g" secondAttribute="centerX" id="Tkq-ut-Ndx"/>
+                            <constraint firstItem="2vY-vY-K03" firstAttribute="leading" secondItem="I46-SZ-N4g" secondAttribute="leading" id="ZdA-mn-aFe"/>
+                            <constraint firstAttribute="trailing" secondItem="kNf-rE-3FS" secondAttribute="trailing" constant="33" id="aTP-ou-kq6"/>
+                            <constraint firstAttribute="trailing" secondItem="UN6-j6-MUe" secondAttribute="trailing" constant="33" id="dBr-vs-BAs"/>
+                            <constraint firstItem="aTz-FC-8eQ" firstAttribute="top" secondItem="UN6-j6-MUe" secondAttribute="bottom" constant="20" id="ocS-go-MLq"/>
+                            <constraint firstAttribute="bottom" secondItem="og6-7m-YQA" secondAttribute="bottom" constant="25" id="y1c-v9-ZuQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="I46-SZ-N4g" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="U5D-rG-Nob"/>
+                    <constraint firstAttribute="bottom" secondItem="I46-SZ-N4g" secondAttribute="bottom" id="kzq-b2-fbK"/>
+                    <constraint firstItem="I46-SZ-N4g" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="nbi-Hb-SFT"/>
+                    <constraint firstItem="I46-SZ-N4g" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="r89-JI-SoO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="barPickerView" destination="aTz-FC-8eQ" id="Kwg-Cb-4BR"/>
+                <outlet property="colorIndicatorView" destination="kNf-rE-3FS" id="zUn-FZ-inl"/>
+                <outlet property="hexCodeTextField" destination="qTE-sa-33V" id="zb7-z7-8QI"/>
+                <outlet property="solidColorPickerView" destination="og6-7m-YQA" id="ZnF-AL-K6r"/>
+                <outlet property="squarePickerView" destination="UN6-j6-MUe" id="hes-Zo-jhH"/>
+            </connections>
+            <point key="canvasLocation" x="31.159420289855074" y="167.07589285714286"/>
+        </tableViewCell>
+    </objects>
+</document>
