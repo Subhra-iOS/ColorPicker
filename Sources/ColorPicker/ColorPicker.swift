@@ -1,13 +1,13 @@
 
 import UIKit
 
-struct ColorPicker {
+public struct ColorPicker {
     
     private let deviceType: UIUserInterfaceIdiom
     private var navigationDelegate: ColcorPickerNavigationProtocol?
     private let colorHexCode: String
     
-    init(deviceType: UIUserInterfaceIdiom,
+    public init(deviceType: UIUserInterfaceIdiom,
          colorHex: String,
          navigation: ColcorPickerNavigationProtocol?) {
         self.deviceType = deviceType
@@ -15,7 +15,7 @@ struct ColorPicker {
         self.navigationDelegate = navigation
     }
     
-    func openColorPicker(){
+    public func openColorPicker(){
         
         var pickerController : ARCColorPickerController?
         switch self.deviceType{
