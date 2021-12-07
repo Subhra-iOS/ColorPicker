@@ -1,5 +1,5 @@
 import XCTest
-@testable import ColorPicker
+//@testable import ColorPicker
 
 final class ColorPickerTests: XCTestCase {
     func testExample() {

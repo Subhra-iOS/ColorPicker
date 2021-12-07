@@ -29,16 +29,6 @@ public struct ColorPicker {
                     pickerController?.isModalInPresentation = true
                 }
                 pickerController?.modalPresentationStyle = .formSheet
-            case .unspecified,
-                 .tv,
-                 .carPlay,
-                 .mac:
-                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController", bundle: Bundle.module)
-                
-                if #available(iOS 13.0, *){
-                    pickerController?.isModalInPresentation = true
-                }
-                pickerController?.modalPresentationStyle = .formSheet
             
             @unknown default:
                 pickerController = ARCColorPickerController(nibName: "ARCColorPickerController_iPhone", bundle: Bundle.module)
