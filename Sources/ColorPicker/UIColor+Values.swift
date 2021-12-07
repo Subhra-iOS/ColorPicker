@@ -127,3 +127,98 @@ extension UIColor {
       }*/
     
 }
+
+extension UIColor {
+    
+    convenience init(hex: String) {
+        self.init(hex: hex, alpha:1)
+    }
+    
+    convenience init(hex: String, alpha: CGFloat) {
+        var hexWithoutSymbol = hex
+        if hexWithoutSymbol.hasPrefix("#") {
+            hexWithoutSymbol = hex.substring(1)
+        }
+        
+        let scanner = Scanner(string: hexWithoutSymbol)
+        var hexInt:UInt32 = 0x0
+        scanner.scanHexInt32(&hexInt)
+        
+        var r:UInt32!, g:UInt32!, b:UInt32!
+        switch (hexWithoutSymbol.length()) {
+            case 3 : // #RGB
+                r = ((hexInt >> 4) & 0xf0 | (hexInt >> 8) & 0x0f)
+                g = ((hexInt >> 0) & 0xf0 | (hexInt >> 4) & 0x0f)
+                b = ((hexInt << 4) & 0xf0 | hexInt & 0x0f)
+                break
+            case 6 : // #RRGGBB
+                r = (hexInt >> 16) & 0xff
+                g = (hexInt >> 8) & 0xff
+                b = hexInt & 0xff
+                break
+            default :
+                // TODO:ERROR
+                break
+        }
+        
+        self.init(
+            red: (CGFloat(r)/255),
+            green: (CGFloat(g)/255),
+            blue: (CGFloat(b)/255),
+            alpha:alpha)
+    }
+    
+    
+    class func colorFromRGB(_ rgbValue: UInt) -> UIColor {
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
+    
+    /// Perticular color for perticular String
+    ///
+    /// - Parameter seed: Color for string
+    /// - Returns: UIColor
+    /// - Author: Sayak  S Khatua
+    class func randomColorForString(seed: String) -> UIColor {
+        
+        var total: Int = 0
+        for u in seed.unicodeScalars {
+            total += Int(UInt32(u))
+        }
+        
+        srand48(total * 200)
+        let r = CGFloat(drand48())
+        
+        srand48(total)
+        let g = CGFloat(drand48())
+        
+        srand48(total / 200)
+        let b = CGFloat(drand48())
+        
+        return UIColor(red: r, green: g, blue: b, alpha: 1)
+    }
+    
+}
+
+extension String{
+    func substring(_ from: Int) -> String {
+        return self.substring(from: self.index(self.startIndex, offsetBy: from))
+    }
+    
+    func length() -> Int {
+        let characterCount : Int? = self.count
+        if let strLength = characterCount,strLength > 0{
+            return  strLength
+        }else{
+            return Int(0)
+        }
+    }
+    
+    func isHexCode() -> Bool{
+        return  self.contains(Character("#"))
+    }
+}

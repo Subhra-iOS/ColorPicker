@@ -1,6 +1,5 @@
 import XCTest
 @testable import ColorPicker
-@testable import ARCColorPickerController
 
 final class ColorPickerTests: XCTestCase {
     func testExample() {

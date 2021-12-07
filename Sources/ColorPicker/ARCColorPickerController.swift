@@ -25,7 +25,7 @@ public class ARCColorPickerController: UIViewController {
         self.defaultHexCode = code
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         self.roundRectContainerView?.cornerPairsEadges = .top(10.0)
@@ -60,19 +60,19 @@ public class ARCColorPickerController: UIViewController {
            }
     }
     
-    override var shouldAutorotate: Bool {
+    override public var shouldAutorotate: Bool {
            return true
        }
            
-       override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    public override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
            return .all
        }
        
-       override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
+    public override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation{
            return .portrait
        }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+    public override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.colorPickerTable.setContentOffset(CGPoint(x: 0.0, y: 0.0), animated: false)
     }
     
@@ -83,11 +83,11 @@ public class ARCColorPickerController: UIViewController {
 }
 
 extension ARCColorPickerController : UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let colorCell : ARCHueColorPickerCell = tableView.dequeueReusableCell(withIdentifier: colorPickerCellIdentifier, for: indexPath) as! ARCHueColorPickerCell
         colorCell.setInitialColorWith(hexCode: self.hexCode ?? "")
         colorCell.setColorPickerDelegate(delegate: self)
@@ -97,15 +97,15 @@ extension ARCColorPickerController : UITableViewDataSource{
 }
 
 extension ARCColorPickerController : UITableViewDelegate{
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
         return UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?{
+    public  func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView?{
         return UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.frame.size.width, height: 0.0))
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
@@ -121,7 +121,7 @@ extension ARCColorPickerController : ColorPickerProtocol {
 
 extension ARCColorPickerController {
    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
       /*  super.touchesBegan(touches, with: event)
            if let touch = touches.first , let boxOrBarView = touch.view {
@@ -137,7 +137,7 @@ extension ARCColorPickerController {
             }*/
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    public override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
             /*super.touchesMoved(touches, with: event)
             if let touch = touches.first , let boxOrBarView = touch.view {
                if boxOrBarView  is  ColorSquarePicker {
