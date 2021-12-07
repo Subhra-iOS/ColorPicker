@@ -32,7 +32,7 @@ public class ARCColorPickerController: UIViewController {
 
         self.colorPickerTable.isScrollEnabled = true
         self.colorPickerTable.isUserInteractionEnabled = true
-        self.colorPickerTable.register(UINib(nibName: "ARCHueColorPickerCell", bundle: nil), forCellReuseIdentifier: colorPickerCellIdentifier)
+        self.colorPickerTable.register(UINib(nibName: "ARCHueColorPickerCell", bundle: Bundle.module), forCellReuseIdentifier: colorPickerCellIdentifier)
     }
     
     /// Apply Color Action

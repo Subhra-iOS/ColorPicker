@@ -20,10 +20,10 @@ public struct ColorPicker {
         var pickerController : ARCColorPickerController?
         switch self.deviceType{
             case .phone:
-                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController_iPhone", bundle: nil)
+                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController_iPhone", bundle: Bundle.module)
                 pickerController?.modalPresentationStyle = .overCurrentContext
             case .pad:
-                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController", bundle: nil)
+                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController", bundle: Bundle.module)
                 
                 if #available(iOS 13.0, *){
                     pickerController?.isModalInPresentation = true
@@ -33,7 +33,7 @@ public struct ColorPicker {
                  .tv,
                  .carPlay,
                  .mac:
-                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController", bundle: nil)
+                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController", bundle: Bundle.module)
                 
                 if #available(iOS 13.0, *){
                     pickerController?.isModalInPresentation = true
@@ -41,7 +41,7 @@ public struct ColorPicker {
                 pickerController?.modalPresentationStyle = .formSheet
             
             @unknown default:
-                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController_iPhone", bundle: nil)
+                pickerController = ARCColorPickerController(nibName: "ARCColorPickerController_iPhone", bundle: Bundle.module)
                 pickerController?.modalPresentationStyle = .overCurrentContext
                 
         }
