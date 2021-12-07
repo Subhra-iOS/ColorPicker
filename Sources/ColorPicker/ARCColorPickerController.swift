@@ -28,7 +28,7 @@ public class ARCColorPickerController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.roundRectContainerView?.cornerPairsEadges = .top(10.0)
+       // self.roundRectContainerView?.cornerPairsEadges = .top(10.0)
 
         self.colorPickerTable.isScrollEnabled = true
         self.colorPickerTable.isUserInteractionEnabled = true
