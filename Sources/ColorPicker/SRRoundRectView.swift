@@ -44,9 +44,10 @@ public enum CornerPairsEadge {
     }
     
     override open func layoutSubviews() {
-           super.layoutSubviews()
-            self.layer.mask = nil
-            switch cornerPairsEadges {
+        super.layoutSubviews()
+        self.layer.mask = nil
+        self.roundCorners(corners: [.topLeft, .topRight], radius: 10.0)
+            /*switch cornerPairsEadges {
                 case .top(let cornerRadius):
                      self.roundCorners(corners: [.topLeft, .topRight], radius: cornerRadius)
                 case .bottom(let cornerRadius) :
@@ -55,9 +56,14 @@ public enum CornerPairsEadge {
                     self.roundCorners(corners: [.bottomLeft, .topLeft], radius: cornerRadius)
                 case .topBottomRight(let cornerRadius) :
                     self.roundCorners(corners: [.bottomRight, .topRight], radius: cornerRadius)
-            }
+            }*/
           
        }
+    
+    // MARK: - UI Setup
+    open override func prepareForInterfaceBuilder() {
+        
+    }
        
     
 }
